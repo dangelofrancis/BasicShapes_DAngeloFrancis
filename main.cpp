@@ -1,20 +1,36 @@
-// BasicShapes_DAngeloFrancis.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <string>
+#include "BasicShape.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Square.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+int main() {
+	const int SIZE = 5;
+	BasicShape* shapes[SIZE];
+
+	//filling the array w pointers
+	shapes[0] = new Rectangle(5, 10, "Rectangle 1");
+	shapes[1] = new Rectangle(3, 7, "Rectangle 2");
+	shapes[2] = new Circle(0, 0, 4, "Circle 1");
+	shapes[3] = new Circle(5, 5, 2, "Circle 2");
+	shapes[4] = new Square(6, "The Square");
+
+    // Print info
+    cout << shapes[0]->getName() << " has an area of " << shapes[0]->getArea() << endl;
+    cout << shapes[1]->getName() << " has an area of " << shapes[1]->getArea() << endl;
+    cout << shapes[2]->getName() << " has an area of " << shapes[2]->getArea() << endl;
+    cout << shapes[3]->getName() << " has an area of " << shapes[3]->getArea() << endl;
+    cout << shapes[4]->getName() << " has an area of " << shapes[4]->getArea() << endl;
+
+    // Clean up memory
+    delete shapes[0];
+    delete shapes[1];
+    delete shapes[2];
+    delete shapes[3];
+    delete shapes[4];
+
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

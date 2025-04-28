@@ -13,8 +13,8 @@ public:
 	double getArea() const;
 	string getName() const;
 
-	void setArea(double area);
-	void getName(string name);
+	void setArea(double a);
+	void setName(const string& n);
 
 	virtual void calcArea() = 0;
 };
